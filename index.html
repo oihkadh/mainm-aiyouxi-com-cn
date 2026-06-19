@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>爱游戏 – 再次发现，持续关注</title>
+  <style>
+    /* 重置 & 极简基调 */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: #f6f7f9;
+      color: #1d2b3e;
+      line-height: 1.6;
+      padding: 2rem 1.25rem;
+    }
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+      padding: 2.8rem 2rem 3.2rem;
+    }
+
+    /* 标题层级 – 清晰留白 */
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.8rem;
+      color: #0f1c2e;
+      line-height: 1.2;
+    }
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin: 2.4rem 0 0.8rem;
+      color: #1d2b3e;
+      border-left: 3px solid #3772ff;
+      padding-left: 0.8rem;
+    }
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin: 1.2rem 0 0.3rem;
+      color: #2c3d57;
+    }
+    p {
+      margin: 0.5rem 0 1rem;
+      font-size: 0.98rem;
+      color: #324a63;
+    }
+    a {
+      color: #1e5dca;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    a:hover, a:focus {
+      border-bottom-color: #1e5dca;
+      color: #0d3d8b;
+    }
+    /* 按钮风格 – 干净无框 */
+    .hero-tip {
+      display: inline-block;
+      background: #eef2f9;
+      border-radius: 40px;
+      padding: 0.4rem 1rem;
+      font-size: 0.85rem;
+      color: #1e3a6b;
+      margin: 0.5rem 0 1.8rem;
+      letter-spacing: 0.01em;
+    }
+
+    /* 优势卡片 – 窄线框 */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin: 0.8rem 0 1.2rem;
+    }
+    .feature-item {
+      flex: 1 1 170px;
+      background: #fbfcfd;
+      border: 1px solid #e5eaf0;
+      border-radius: 16px;
+      padding: 1rem 1.1rem;
+      transition: box-shadow 0.15s;
+    }
+    .feature-item em {
+      font-style: normal;
+      display: block;
+      font-weight: 500;
+      font-size: 1rem;
+      color: #1a2f49;
+      margin-bottom: 0.2rem;
+    }
+    .feature-item span {
+      font-size: 0.9rem;
+      color: #4d627c;
+    }
+
+    /* FAQ 摘要 – 紧凑 */
+    .faq-summary {
+      background: #f8faff;
+      border-radius: 16px;
+      padding: 1.2rem 1.4rem;
+      margin: 2rem 0 0.8rem;
+      border: 1px solid #eaeef5;
+    }
+    .faq-summary dt {
+      font-weight: 500;
+      margin: 0.8rem 0 0.2rem;
+      font-size: 0.95rem;
+    }
+    .faq-summary dt:first-of-type {
+      margin-top: 0;
+    }
+    .faq-summary dd {
+      font-size: 0.9rem;
+      color: #405a78;
+      margin-left: 0;
+      margin-bottom: 0.25rem;
+    }
+
+    /* 说明区 – 窄文字 */
+    .note-box {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 0.2rem 0;
+      margin: 0.2rem 0;
+    }
+
+    .footer-links {
+      margin-top: 2.6rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #e2e8f0;
+      font-size: 0.9rem;
+      color: #5b708f;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.4rem;
+    }
+    .footer-links a {
+      color: #2c4f7c;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e8ecf3;
+      margin: 1.4rem 0;
+    }
+
+    /* 响应式 */
+    @media (max-width: 480px) {
+      .page { padding: 1.8rem 1.2rem 2rem; }
+      h1 { font-size: 1.8rem; }
+      .features { flex-direction: column; }
+      .feature-item { flex: 1 1 100%; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  
+  <!-- hero 区 -->
+  <h1>再次遇见·爱游戏</h1>
+  <div class="hero-tip">收藏 · 关注 · 常回来看看</div>
+  <p>
+    无论你是因为偶然搜索，还是老朋友推荐来到 <a href="https://mainm-aiyouxi.com.cn">爱游戏</a>，
+    这里都值得你放入书签。我们不追逐短暂的热点，而是把精力放在整理、筛选和呈现那些真正耐玩的游戏内容上。
+    页面简洁，打开速度快，没有弹窗干扰——适合每一次安静的探索。
+  </p>
+
+  <!-- 优势区：收藏与持续访问的理由 -->
+  <h2>为什么值得再次回来</h2>
+  <div class="features">
+    <div class="feature-item">
+      <em>📌 稳定更新</em>
+      <span>内容保持固定节奏，不突然变更或下线，适合长期订阅。</span>
+    </div>
+    <div class="feature-item">
+      <em>🔍 分类明确</em>
+      <span>按类型、风格、平台整理，再次访问时能直接定位感兴趣的区域。</span>
+    </div>
+    <div class="feature-item">
+      <em>📖 克制推荐</em>
+      <span>不堆砌榜单，每期推荐都经过筛选，避免信息过载。</span>
+    </div>
+  </div>
+
+  <!-- 说明区：从再次访问到持续关注 -->
+  <h2>如何保持关注</h2>
+  <p>
+    如果你在几次访问后觉得内容合口味，不妨做两件小事：一是把 <a href="https://mainm-aiyouxi.com.cn">爱游戏</a>
+    添加到浏览器书签或主屏幕，下次想找游戏灵感时，不必重新搜索；二是隔一段时间回来看看，因为我们会在
+    固定栏目里补充新推荐，也会根据反馈微调版块。不频繁推送，但每次更新都认真。
+  </p>
+  <p>
+    有些朋友习惯把站点分享给同样喜欢游戏的朋友，这也是我们最开心的方式之一。
+    不需要特意注册或留下个人信息，全部内容直接浏览。
+  </p>
+
+  <!-- 场景提示 -->
+  <h2>适合什么时候打开</h2>
+  <div class="note-box">
+    <p>▸ 周末晚上想找一款没玩过但口碑不错的独立游戏</p>
+    <p>▸ 遇到游戏荒，想翻一翻有没有被忽略的冷门作品</p>
+    <p>▸ 纯粹想看看别人的游戏笔记和短评，不带目的</p>
+    <p>▸ 收藏夹吃灰后重新整理，再次确认哪些值得试试</p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-summary">
+    <h2 style="border-left: none; padding-left: 0; margin-top: 0; font-size: 1.15rem;">❓ FAQ 摘要</h2>
+    <dl>
+      <dt>内容多久更新一次？</dt>
+      <dd>目前保持每周 1–2 次补充或替换，节假日前后会有少量专题。</dd>
+      <dt>需要账号或订阅吗？</dt>
+      <dd>不需要。直接访问 <a href="https://mainm-aiyouxi.com.cn">爱游戏</a> 即可看到全部内容，无付费墙。</dd>
+      <dt>我喜欢的游戏类型会不会没有？</dt>
+      <dd>覆盖范围较广，但我们会优先整理有中文资料或社区活跃的作品。也可以留言建议。</dd>
+    </dl>
+  </div>
+
+  <!-- 底部链接区 -->
+  <div class="footer-links">
+    <span>📎 再次访问：<a href="https://mainm-aiyouxi.com.cn">爱游戏</a></span>
+    <span>📋 无广告 · 无追踪</span>
+    <span>📬 反馈：<a href="https://mainm-aiyouxi.com.cn" style="border-bottom: none;">爱游戏</a></span>
+  </div>
+  <hr>
+  <p style="font-size: 0.85rem; color: #6a809e; margin-top: 0.2rem;">
+    适合慢慢逛的游戏角落。把这里放进收藏夹，下次再来不会迷路。
+  </p>
+</div>
+</body>
+</html>
