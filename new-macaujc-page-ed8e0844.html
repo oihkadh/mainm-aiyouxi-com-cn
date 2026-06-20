@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新澳门六合彩 · 知识库入口</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans TC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: linear-gradient(145deg, #fce9d6 0%, #f8d5b0 40%, #f3c79a 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.2rem 1.2rem;
+    }
+
+    .page-container {
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    /* 目录感布局：两栏 + 底部网格式卡片 */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin-bottom: 2.4rem;
+    }
+
+    .card {
+      background: rgba(255, 250, 242, 0.92);
+      backdrop-filter: blur(2px);
+      border-radius: 28px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 8px 24px rgba(140, 80, 30, 0.10);
+      border: 1px solid rgba(255, 235, 210, 0.7);
+      transition: box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 12px 32px rgba(170, 100, 40, 0.12);
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #7a4d2b;
+      letter-spacing: 0.02em;
+      margin-bottom: 1rem;
+      border-left: 5px solid #cc9f7a;
+      padding-left: 0.8rem;
+    }
+
+    .hero-card {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 2.8rem 2.5rem;
+      background: linear-gradient(135deg, rgba(255, 238, 218, 0.95), rgba(252, 226, 198, 0.9));
+    }
+
+    .hero-card h1 {
+      font-size: 2.6rem;
+      font-weight: 650;
+      color: #5f3a1f;
+      margin-bottom: 0.6rem;
+      letter-spacing: 2px;
+    }
+
+    .hero-card .sub {
+      font-size: 1.1rem;
+      color: #6f4b2e;
+      opacity: 0.85;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.7rem 1.2rem;
+      margin-top: 1.2rem;
+    }
+
+    .badge-list span {
+      background: #f3e2d1;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      color: #563e28;
+      border: 1px solid #e6cfb9;
+    }
+
+    /* 特点区域 — 网格卡片 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.4rem;
+      margin: 2.4rem 0;
+    }
+
+    .feature-item {
+      background: rgba(255, 249, 240, 0.8);
+      backdrop-filter: blur(1px);
+      border-radius: 24px;
+      padding: 1.4rem 1.2rem;
+      text-align: center;
+      border: 1px solid #f1ddcb;
+      transition: transform 0.1s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-2px);
+    }
+
+    .feature-item .icon {
+      font-size: 2rem;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .feature-item h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #6a432a;
+      margin-bottom: 0.25rem;
+    }
+
+    .feature-item p {
+      font-size: 0.9rem;
+      color: #7f5a3e;
+      line-height: 1.5;
+    }
+
+    /* 重点说明 + 提示区 (两列布局) */
+    .info-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin-bottom: 2.4rem;
+    }
+
+    .info-card {
+      background: rgba(255, 250, 242, 0.9);
+      border-radius: 28px;
+      padding: 1.6rem 2rem;
+      border: 1px solid #f4dcc9;
+    }
+
+    .info-card h3 {
+      font-size: 1.2rem;
+      color: #6e4a2e;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .info-card p, .info-card li {
+      font-size: 0.96rem;
+      line-height: 1.6;
+      color: #4c3726;
+    }
+
+    .info-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .info-card li {
+      padding: 0.3rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .info-card li::before {
+      content: "•";
+      color: #b58562;
+      font-weight: bold;
+      position: absolute;
+      left: 0.2rem;
+    }
+
+    .tip-card {
+      background: #fff6ec;
+      border: 1px solid #e6cfb9;
+    }
+
+    .faq-summary {
+      background: #fffbf5;
+      border-radius: 28px;
+      padding: 1.8rem 2rem;
+      margin: 2.2rem 0;
+      border: 1px solid #eedbcb;
+    }
+
+    .faq-summary h3 {
+      font-size: 1.2rem;
+      color: #6e4a2e;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #e4cfbc;
+      padding-bottom: 0.4rem;
+    }
+
+    .faq-item {
+      margin-bottom: 0.8rem;
+    }
+
+    .faq-item strong {
+      color: #6f4d32;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item p {
+      color: #5a3f2b;
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    .inline-link {
+      color: #9b6b44;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 2px solid #dabc9e;
+      transition: 0.15s;
+    }
+
+    .inline-link:hover {
+      color: #613b1e;
+      border-bottom-color: #9b6b44;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 1.8rem;
+      font-size: 0.9rem;
+      color: #784f30;
+      opacity: 0.7;
+      border-top: 1px solid #e4cdb6;
+      padding-top: 1.8rem;
+    }
+
+    @media (max-width: 720px) {
+      .intro-grid { grid-template-columns: 1fr; }
+      .info-pair { grid-template-columns: 1fr; }
+      .hero-card h1 { font-size: 2rem; }
+      .card { padding: 1.4rem; }
+      .feature-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .feature-grid { grid-template-columns: 1fr; }
+      body { padding: 1rem 0.8rem; }
+      .card { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-container">
+  <!-- hero + 介绍 双栏入口布局 -->
+  <div class="intro-grid">
+    <div class="card hero-card">
+      <h1>新澳门六合彩 · 知识库</h1>
+      <p class="sub">一份经过整理的信息页面，提供稳定的浏览入口与说明。</p>
+      <div class="badge-list">
+        <span>📚 信息导览</span>
+        <span>🧭 清晰方向</span>
+        <span>📌 功能说明</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📖 页面说明</h2>
+      <p>本页面作为知识库入口，汇集了与 <a class="inline-link" href="https://new-macaujc.com">新澳门六合彩</a> 相关的介绍、特点、注意事项及常见问题摘要。</p>
+      <p style="margin-top: 0.6rem;">所有内容均基于公开信息整理，旨在帮助访问者快速了解该平台的结构与用途。</p>
+    </div>
+
+    <div class="card">
+      <h2>📂 相关信息</h2>
+      <ul>
+        <li>平台定位与服务范围</li>
+        <li>历史背景与用户群体</li>
+        <li>常见使用场景说明</li>
+        <li>稳定访问方式梳理</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 特点卡片网格  -->
+  <div class="feature-grid">
+    <div class="feature-item">
+      <span class="icon">📋</span>
+      <h3>界面简洁</h3>
+      <p>呈现清晰的信息层级，方便快速定位所需内容。</p>
+    </div>
+    <div class="feature-item">
+      <span class="icon">🔗</span>
+      <h3>直接入口</h3>
+      <p>提供指向 <strong>新澳门六合彩</strong> 的直达链接，无需二次跳转。</p>
+    </div>
+    <div class="feature-item">
+      <span class="icon">📌</span>
+      <h3>内容提纲</h3>
+      <p>说明区、提示区、FAQ 摘要并列，查阅体验更流畅。</p>
+    </div>
+    <div class="feature-item">
+      <span class="icon">🛡️</span>
+      <h3>信息稳健</h3>
+      <p>不包含夸张表述，仅整理客观说明与常规注意事项。</p>
+    </div>
+  </div>
+
+  <!-- 说明区 + 提示区 -->
+  <div class="info-pair">
+    <div class="info-card">
+      <h3>📋 说明区</h3>
+      <p>此知识库入口主要服务于希望了解 <a class="inline-link" href="https://new-macaujc.com">新澳门六合彩</a> 的用户。通过目录式卡片，划分出不同功能区块：</p>
+      <ul style="margin-top: 0.4rem;">
+        <li><strong>介绍</strong> – 平台基本定位与内容范畴</li>
+        <li><strong>特点</strong> – 界面与交互方面的主要特征</li>
+        <li><strong>场景</strong> – 适用于信息查询与日常浏览</li>
+        <li><strong>提示</strong> – 使用过程中的常见注意事项</li>
+      </ul>
+      <p style="margin-top: 0.6rem;">所有内容均以通用性描述为主，不涉足具体操作建议或承诺。</p>
+    </div>
+
+    <div class="info-card tip-card">
+      <h3>💡 提示区</h3>
+      <p><strong>使用建议：</strong> 当您通过本页进入 <a class="inline-link" href="https://new-macaujc.com">新澳门六合彩</a> 时，建议优先浏览页面结构与常见问题区域，以便快速建立整体认知。</p>
+      <p style="margin-top: 0.8rem;"><strong>注意：</strong> 信息页面仅作索引用途，具体内容以实际站点为准。请保持合理的访问预期。</p>
+      <p style="margin-top: 0.8rem; background: #f5e4d4; border-radius: 20px; padding: 0.6rem 1rem; font-size: 0.9rem;">
+        📍 如需返回本知识库，可随时收藏当前页面。
+      </p>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要  -->
+  <div class="faq-summary">
+    <h3>❓ 常见问题摘要</h3>
+    <div class="faq-item">
+      <strong>Q: 这个页面是官方网站吗？</strong>
+      <p>不是。这是一个独立的介绍与索引页面，提供指向 <a class="inline-link" href="https://new-macaujc.com">新澳门六合彩</a> 的稳定入口以及基本信息整理。</p>
+    </div>
+    <div class="faq-item">
+      <strong>Q: 页面内容会更新吗？</strong>
+      <p>知识库入口会依据实际需求做阶段性修订，但始终保持平实、克制的信息风格。</p>
+    </div>
+    <div class="faq-item">
+      <strong>Q: 如何快速定位所需信息？</strong>
+      <p>利用上方目录式卡片以及特点网格，可分别浏览说明、提示、相关信息和 FAQ 摘要。</p>
+    </div>
+  </div>
+
+  <!-- 再次链接嵌入句子  -->
+  <div style="text-align: center; margin: 0.8rem 0 0.4rem; background: rgba(255, 245, 235, 0.5); padding: 1.2rem; border-radius: 40px;">
+    <p style="font-size: 1rem; color: #5e3f28;">
+      若您希望直接浏览主站，可使用 <a class="inline-link" href="https://new-macaujc.com">新澳门六合彩</a> 这个链接。本页所有内容均围绕该站点进行整理。
+    </p>
+  </div>
+
+  <div class="footer-note">
+    <span>信息整理 · 知识库入口</span> ｜ 内容仅供说明参考
+  </div>
+</div>
+</body>
+</html>
