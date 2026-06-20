@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>麻将胡了 · 站点介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+    }
+
+    body {
+      background: #f5f9fc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+      color: #1a2e3a;
+    }
+
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 28px 20px 48px;
+    }
+
+    /* hero 区：浅蓝绿渐变卡片 */
+    .hero-card {
+      background: linear-gradient(145deg, #d7f0ec 0%, #b4dfd8 100%);
+      border-radius: 36px;
+      padding: 36px 28px;
+      box-shadow: 0 8px 24px rgba(20, 80, 70, 0.08);
+      margin-bottom: 40px;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #0b3e3a;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: #1b4f48;
+      max-width: 90%;
+      border-left: 4px solid #2e7d72;
+      padding-left: 18px;
+      margin-bottom: 20px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(40, 110, 100, 0.15);
+      backdrop-filter: blur(2px);
+      padding: 6px 20px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #0b4b42;
+      border: 1px solid rgba(60, 140, 128, 0.25);
+    }
+
+    /* 网格卡片 */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin: 38px 0 32px;
+    }
+
+    .card-item {
+      background: white;
+      border-radius: 24px;
+      padding: 24px 20px 22px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 4px rgba(20, 90, 80, 0.06);
+      border: 1px solid #e2f1ed;
+      transition: box-shadow 0.2s ease, transform 0.15s;
+    }
+
+    .card-item:hover {
+      box-shadow: 0 8px 20px rgba(30, 110, 100, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      display: inline-block;
+      background: #e4f3ef;
+      width: 48px;
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      border-radius: 16px;
+      color: #1f6d61;
+    }
+
+    .card-item h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #124640;
+      margin: 10px 0 6px;
+    }
+
+    .card-item p {
+      font-size: 0.95rem;
+      color: #2b4f47;
+      margin-top: 4px;
+    }
+
+    /* 介绍段落 + 自然链接 */
+    .intro-block {
+      background: white;
+      padding: 28px 28px 32px;
+      border-radius: 28px;
+      margin: 32px 0 28px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+      border: 1px solid #dceee9;
+    }
+
+    .intro-block h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #0d4d44;
+      border-bottom: 2px solid #c1e3db;
+      padding-bottom: 10px;
+      margin-bottom: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .intro-block p {
+      margin-bottom: 18px;
+      font-size: 1rem;
+      color: #1f3d37;
+    }
+
+    .intro-block a {
+      color: #106f5f;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #97cfc2;
+      transition: border-color 0.2s;
+    }
+
+    .intro-block a:hover {
+      border-bottom-color: #0b5547;
+      color: #075246;
+    }
+
+    .people-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin: 32px 0;
+      background: #edf8f5;
+      border-radius: 28px;
+      padding: 26px 28px;
+      border: 1px solid #d2eae3;
+    }
+
+    .people-item {
+      flex: 1 1 160px;
+      min-width: 130px;
+    }
+
+    .people-item h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #154f44;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .people-item p {
+      font-size: 0.9rem;
+      color: #2b574b;
+      margin: 0;
+    }
+
+    .faq-mini {
+      background: white;
+      border-radius: 24px;
+      padding: 22px 26px;
+      margin: 30px 0 18px;
+      border: 1px solid #d7ece5;
+    }
+
+    .faq-mini h3 {
+      font-size: 1.3rem;
+      color: #0d5548;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .faq-item {
+      padding: 12px 0;
+      border-bottom: 1px solid #e0efe9;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #1b5549;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .faq-a {
+      font-size: 0.92rem;
+      color: #2d5b50;
+    }
+
+    .disclaimer-note {
+      background: #f0f9f6;
+      padding: 18px 24px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #265f55;
+      border: 1px solid #b7dbd1;
+      margin: 28px 0 16px;
+      text-align: center;
+    }
+
+    .footer-space {
+      margin-top: 24px;
+      font-size: 0.85rem;
+      color: #547b72;
+      text-align: center;
+      border-top: 1px solid #d0e5de;
+      padding-top: 26px;
+    }
+
+    @media (max-width: 500px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+      .grid-cards {
+        grid-template-columns: 1fr;
+      }
+      .intro-block {
+        padding: 20px 18px;
+      }
+      .people-section {
+        padding: 20px 18px;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .container {
+        padding: 40px 32px 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- hero 卡片 -->
+    <div class="hero-card">
+      <div class="hero-title">麻将胡了</div>
+      <div class="hero-sub">关于站点 · 信息卡片式导览</div>
+      <span class="hero-tag">📋 知识型 · 可信说明</span>
+    </div>
+
+    <!-- 用途卡片网格 -->
+    <div class="grid-cards">
+      <div class="card-item">
+        <div class="card-icon">🧩</div>
+        <h3>站点定位</h3>
+        <p>聚合麻将规则、计分方式与变体玩法，面向爱好者的参考与交流平台。</p>
+      </div>
+      <div class="card-item">
+        <div class="card-icon">📖</div>
+        <h3>内容示意</h3>
+        <p>提供基础胡牌类型、番种说明、常见牌型例解，方便快速查阅。</p>
+      </div>
+      <div class="card-item">
+        <div class="card-icon">🧭</div>
+        <h3>使用场景</h3>
+        <p>适合自学规则、复盘分析、了解不同地方麻将的差异与术语。</p>
+      </div>
+    </div>
+
+    <!-- 介绍段落 + 自然链接嵌入 -->
+    <div class="intro-block">
+      <h2>站点介绍与可信说明</h2>
+      <p>该网站以麻将爱好者为服务对象，整理并呈现主流及地方麻将的胡牌逻辑、牌型图解、算番依据等内容。所有信息均基于公开资料与通用规则整理，不包含游戏客户端或实时对局功能。</p>
+      <p>如果你希望了解“胡牌”的具体构成、番种如何叠加、不同规则下哪类牌型计分更高，可以通过 <a href="https://m-app-mahjong.com">麻将胡了</a> 查阅分类条目。站内内容不定期根据反馈修订，保持基础准确性。</p>
+      <p>作为信息参考站点，网站不对任何第三方游戏平台或博彩行为背书，所列举规则仅用于知识交流与牌理探讨。</p>
+    </div>
+
+    <!-- 适合人群 卡片区 -->
+    <div class="people-section">
+      <div class="people-item">
+        <h4>🃏 初学玩家</h4>
+        <p>从基本门清、平胡开始，逐步了解常见胡牌牌型与必记住口诀。</p>
+      </div>
+      <div class="people-item">
+        <h4>📊 规则研究者</h4>
+        <p>对比不同地区（川麻、广东、日本立直等）的番种差异与算分体系。</p>
+      </div>
+      <div class="people-item">
+        <h4>🧑‍🏫 牌局复盘者</h4>
+        <p>借助站点术语定义，快速确认特殊牌型是否成立，辅助理解判罚逻辑。</p>
+      </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+      <h3>常见疑问摘要</h3>
+      <div class="faq-item">
+        <span class="faq-q">❓ 站点是否提供在线麻将游戏？</span>
+        <div class="faq-a">不提供。本站为规则与知识介绍页，不包含游戏客户端、对局匹配或博彩功能。</div>
+      </div>
+      <div class="faq-item">
+        <span class="faq-q">❓ 胡牌规则覆盖哪些变体？</span>
+        <div class="faq-a">涵盖国标、广东、川麻、台湾、日本立直等主流体系的基本番种与特殊约定。</div>
+      </div>
+      <div class="faq-item">
+        <span class="faq-q">❓ 信息更新周期如何？</span>
+        <div class="faq-a">根据玩家反馈与规则版本变化不定期修订，无固定发布周期。</div>
+      </div>
+    </div>
+
+    <!-- 可信提示 -->
+    <div class="disclaimer-note">
+      ⚡ 本页内容仅作为知识分享，所有规则说明仅供参考，不构成专业规则解读。
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-space">
+      © 站点说明 · 持续完善中
+    </div>
+  </div>
+</body>
+</html>
